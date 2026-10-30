@@ -1,22 +1,54 @@
-// Swaps the right-hand panel between home / about / projects.
-// Clicking the same link again returns to home.
-const views = document.querySelectorAll('.view');
-const links = document.querySelectorAll('[data-view]');
+// Projects and About open as full pages on top of the home screen.
+const pages = document.querySelectorAll('.page-full');
+const openers = document.querySelectorAll('[data-view]');
 
-function show(id) {
-  const target = document.getElementById(id) ? id : 'home';
-  views.forEach(v => v.classList.toggle('is-active', v.id === target));
-  links.forEach(l => l.classList.toggle('is-current', l.dataset.view === target));
+function openPage(id) {
+  pages.forEach(p => {
+    const isTarget = p.id === id;
+    p.classList.toggle('is-open', isTarget);
+    p.setAttribute('aria-hidden', String(!isTarget));
+  });
 }
 
-links.forEach(link => {
+function goHome() {
+  history.replaceState(null, '', location.pathname);
+  openPage(null);
+}
+
+openers.forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    const id = link.dataset.view;
-    const isCurrent = link.classList.contains('is-current');
-    history.replaceState(null, '', isCurrent ? '#' : '#' + id);
-    show(isCurrent ? 'home' : id);
+    history.replaceState(null, '', '#' + link.dataset.view);
+    openPage(link.dataset.view);
   });
 });
 
-show(location.hash.slice(1));
+document.querySelectorAll('.back').forEach(btn => btn.addEventListener('click', goHome));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') goHome(); });
+
+openPage(location.hash.slice(1));
+
+// Email icon copies the address instead of opening a mail app.
+const copyBtn = document.querySelector('.copy-email');
+const toast = copyBtn.querySelector('.toast');
+let toastTimer;
+
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const t = document.createElement('textarea');   // fallback for older browsers / file://
+    t.value = text;
+    document.body.appendChild(t);
+    t.select();
+    document.execCommand('copy');
+    t.remove();
+  }
+}
+
+copyBtn.addEventListener('click', async () => {
+  await copyText(copyBtn.dataset.email);
+  toast.classList.add('is-visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 1600);
+});
