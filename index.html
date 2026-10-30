@@ -53,19 +53,32 @@
     <div class="page-full__inner">
       <h2>Projects</h2>
         <ul class="project-list">
-          <li>
-            <a href="https://github.com/junap206/personal-website" target="_blank" rel="noopener">
-              <strong>Personal Website</strong>
-              <span>This site. Plain HTML, CSS and a little JavaScript.</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/junap206/homecare_intake" target="_blank" rel="noopener">
-              <strong>Homecare Intake</strong>
-              <span>Replace this with a one-line description.</span>
-            </a>
-          </li>
-        </ul>
+        <li class="card">
+          <strong>Sleep Stage Model Predictor</strong>
+          <span class="meta">Cleveland Clinic &middot; Jul 2026 &ndash; Current</span>
+          <p>Predicts wake, non-REM and REM sleep from Apple Watch heart rate and motion, validated against expert-scored EEG.</p>
+          <div class="card__links">
+            <a href="https://sleep-stage-explorer.vercel.app" target="_blank" rel="noopener">Try it live &#8599;</a>
+          </div>
+        </li>
+        <li class="card">
+          <strong>Homecare Intake Platform</strong>
+          <span class="meta">Personal project</span>
+          <p>Turns new inquiries into booked assessments, revives cold leads, and hands off to staff when needed.</p>
+          <div class="card__links">
+            <a href="#demos" data-view="demos">Demo videos</a>
+            <a href="https://github.com/junap206/homecare_intake" target="_blank" rel="noopener">GitHub &#8599;</a>
+          </div>
+        </li>
+        <li class="card">
+          <strong>Anesthesiology Triage Agents</strong>
+          <span class="meta">University Hospitals &middot; Current</span>
+          <p>AI agents that triage preoperative checklists for anesthesiology.</p>
+          <div class="card__links">
+            <a href="https://www.uhhospitals.org" target="_blank" rel="noopener">University Hospitals &#8599;</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -75,8 +88,36 @@
     </button>
     <div class="page-full__inner">
       <h2>About</h2>
-        <p>Write a short paragraph about yourself: where you study, what you're interested in, what you're working on.</p>
-        <p>A second paragraph is optional.</p>
+      <p>Third-year at Case Western Reserve University studying Systems Biology.</p>
+      <ul class="tags">
+        <li>Clinical machine learning</li>
+        <li>AI agents</li>
+        <li>Wearable biosignals</li>
+        <li>Healthcare automation</li>
+        <li>Entrepreneurship</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page-full" id="demos" aria-hidden="true">
+    <button type="button" class="back" data-back="projects" aria-label="Back to projects">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m6-6-6 6 6 6"/></svg>
+    </button>
+    <div class="page-full__inner page-full__inner--wide">
+      <h2>Demo videos</h2>
+      <p class="note">Homecare Intake Platform. All data shown is synthetic.</p>
+      <figure>
+        <img loading="lazy" src="https://github.com/user-attachments/assets/ff202d67-4809-4ab7-85db-1e37ed2056d8" alt="Screen recording: a new inquiry becomes a booked assessment" />
+        <figcaption>New inquiry &rarr; booked assessment</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" src="https://github.com/user-attachments/assets/c8e42e3a-fa9d-468a-8367-500f63a173e7" alt="Screen recording: reviving a cold lead" />
+        <figcaption>Reviving cold leads</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" src="https://github.com/user-attachments/assets/28e69f72-2807-4b13-ad55-cf5e9d05486f" alt="Screen recording: hand-off to a staff member" />
+        <figcaption>Accurate hand-off when needed</figcaption>
+      </figure>
     </div>
   </section>
 
