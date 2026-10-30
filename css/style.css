@@ -162,33 +162,35 @@ body {
 .page-full p { color: #566a5b; font-size: 1.1rem; max-width: 52ch; }
 .page-full p + p { margin-top: 1rem; }
 
-.project-list { list-style: none; display: grid; gap: 1rem; }
-.card {
-  padding: 1.5rem 1.7rem;
-  background: var(--highlight);
-  border-radius: 22px;
-  transition: background var(--ease), transform var(--ease);
+.project-list { list-style: none; }
+.project-list li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid #dde4d6;
 }
-.card:hover { background: #d3e2cd; transform: translateX(4px); }
-.card strong { display: block; font-weight: 600; font-size: 1.25rem; letter-spacing: -0.01em; }
-.card .meta { display: block; margin-top: 0.1rem; font-size: 0.85rem; color: var(--accent); font-weight: 500; }
-.card p { margin-top: 0.7rem; font-size: 1rem; }
-.card__links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-.card__links a {
-  padding: 0.35rem 0.95rem;
+.project-list li:first-child { border-top: 1px solid #dde4d6; }
+.project-name { font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 500; letter-spacing: -0.02em; }
+
+.pill {
+  padding: 0.35rem 1rem;
   border-radius: 999px;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--highlight);
+  color: var(--accent);
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
   transition: background var(--ease), color var(--ease);
 }
-.card__links a:hover,
-.card__links a:focus-visible { background: var(--accent); color: var(--bg); outline: none; }
+.pill:hover,
+.pill:focus-visible { background: var(--accent); color: var(--bg); outline: none; }
 
-.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
-.tags li { padding: 0.45rem 1.05rem; border-radius: 999px; background: var(--highlight); color: var(--accent); font-weight: 500; font-size: 0.95rem; }
+.about-list { list-style: none; margin-top: 1.8rem; }
+.about-list li { padding: 0.8rem 0; border-bottom: 1px solid #dde4d6; font-size: 1.15rem; font-weight: 500; }
+.about-list li:first-child { border-top: 1px solid #dde4d6; }
+.page-full .interests { margin-top: 1.8rem; font-size: 1rem; }
 
 .page-full__inner--wide { max-width: 960px; }
 .page-full .note { margin: -1rem 0 2rem; font-size: 0.95rem; }
