@@ -36,11 +36,11 @@ body {
 
 /* ---------- Left ---------- */
 .name {
-  font-size: clamp(2.6rem, 5.4vw, 4.8rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.8rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1;
-  margin-bottom: 3rem;
+  margin-bottom: 2.6rem;
 }
 
 .links { list-style: none; display: flex; flex-direction: column; align-items: flex-start; }
@@ -59,7 +59,8 @@ body {
 .links a.is-current { color: var(--text); }
 
 .socials { display: flex; gap: 0.6rem; margin-top: 1.6rem; }
-.socials a {
+.socials a,
+.socials button {
   display: grid;
   place-items: center;
   width: 2.9rem;
@@ -67,10 +68,15 @@ body {
   color: var(--accent);
   background: var(--highlight);
   border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  position: relative;
   transition: background var(--ease), color var(--ease), transform var(--ease);
 }
 .socials a:hover,
-.socials a:focus-visible { background: var(--accent); color: var(--bg); transform: translateY(-3px); outline: none; }
+.socials a:focus-visible,
+.socials button:hover,
+.socials button:focus-visible { background: var(--accent); color: var(--bg); transform: translateY(-3px); outline: none; }
 .socials svg { width: 1.35rem; height: 1.35rem; }
 
 /* ---------- Right ---------- */
@@ -92,31 +98,83 @@ body {
 /* tall pill portrait */
 .photo {
   align-self: flex-end;
-  height: min(100%, 560px);
-  aspect-ratio: 587 / 700;
+  height: min(100%, 500px);
+  aspect-ratio: 587 / 640;   /* a little shorter than the full image */
   object-fit: cover;
+  object-position: center bottom;   /* trims the empty top */
   border: 5px solid var(--outline);
   border-radius: 999px;
   box-shadow: 0 24px 50px rgba(79, 122, 90, 0.2);
 }
 
-.view h2 { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 1.2rem; }
-.view p { color: #566a5b; max-width: 44ch; font-size: 1.05rem; }
-.view p + p { margin-top: 0.9rem; }
+.toast {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translate(-50%, -4px);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font: 500 0.8rem var(--font);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--ease), transform var(--ease);
+}
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 
-.project-list { list-style: none; display: grid; gap: 0.9rem; max-width: 460px; }
+/* ---------- Full-page Projects / About ---------- */
+.page-full {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: var(--bg);
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(24px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+.page-full.is-open { opacity: 1; visibility: visible; transform: none; }
+
+.back {
+  position: absolute;
+  top: 2rem;
+  left: clamp(1.5rem, 4vw, 3rem);
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--highlight);
+  color: var(--accent);
+  cursor: pointer;
+  transition: background var(--ease), color var(--ease), transform var(--ease);
+}
+.back:hover,
+.back:focus-visible { background: var(--accent); color: var(--bg); transform: translateX(-3px); outline: none; }
+.back svg { width: 1.4rem; height: 1.4rem; }
+
+.page-full__inner { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+.page-full h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 600; letter-spacing: -0.03em; margin-bottom: 2rem; }
+.page-full p { color: #566a5b; font-size: 1.1rem; max-width: 52ch; }
+.page-full p + p { margin-top: 1rem; }
+
+.project-list { list-style: none; display: grid; gap: 1rem; }
 .project-list a {
   display: block;
-  padding: 1.1rem 1.4rem;
+  padding: 1.4rem 1.6rem;
   background: var(--highlight);
-  border-radius: 20px;
+  border-radius: 22px;
   color: var(--text);
   text-decoration: none;
   transition: background var(--ease), transform var(--ease);
 }
 .project-list a:hover { background: #d3e2cd; transform: translateX(4px); }
-.project-list strong { display: block; font-weight: 600; font-size: 1.1rem; }
-.project-list span { color: #566a5b; font-size: 0.95rem; }
+.project-list strong { display: block; font-weight: 600; font-size: 1.2rem; }
+.project-list span { color: #566a5b; }
 
 /* ---------- Small screens: stack and allow scroll so nothing is cut off ---------- */
 @media (max-width: 720px) {
