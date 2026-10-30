@@ -187,19 +187,23 @@ body {
 .pill:hover,
 .pill:focus-visible { background: var(--accent); color: var(--bg); outline: none; }
 
-.about-list { list-style: none; margin-top: 1.8rem; }
-.about-list li { padding: 0.8rem 0; border-bottom: 1px solid #dde4d6; font-size: 1.15rem; font-weight: 500; }
-.about-list li:first-child { border-top: 1px solid #dde4d6; }
-.page-full .interests { margin-top: 1.8rem; font-size: 1rem; }
+.page-full .intro-line { max-width: none; white-space: nowrap; }
+.about-list { list-style: none; margin-top: 1.6rem; }
+.about-list li { padding: 0.35rem 0; font-size: 1.15rem; font-weight: 500; }
+.about-list li::before { content: "\2013"; margin-right: 0.8rem; color: var(--accent); }
+
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+.tags li { padding: 0.45rem 1.05rem; border-radius: 999px; background: var(--highlight); color: var(--accent); font-weight: 500; font-size: 0.95rem; }
 
 .page-full__inner--wide { max-width: 960px; }
 .page-full .note { margin: -1rem 0 2rem; font-size: 0.95rem; }
-.page-full figure { margin-bottom: 2.2rem; }
+.page-full figure { margin-bottom: 3rem; }
+.page-full figcaption { margin-bottom: 0.9rem; font-size: 1.2rem; font-weight: 500; letter-spacing: -0.01em; }
 .page-full figure img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid #d6dfd0; box-shadow: 0 10px 30px rgba(79, 122, 90, 0.12); }
-.page-full figcaption { margin-top: 0.7rem; font-weight: 500; }
 
 /* ---------- Small screens: stack and allow scroll so nothing is cut off ---------- */
 @media (max-width: 720px) {
+  .page-full .intro-line { white-space: normal; }
   body { overflow: auto; }
   .page { height: auto; min-height: 100vh; grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; align-items: start; }
   .content { height: auto; min-height: 60vh; }
