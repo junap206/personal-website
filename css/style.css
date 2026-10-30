@@ -1,11 +1,11 @@
 /* ---------- Design tokens: change colors/fonts here ---------- */
 :root {
-  --bg: #eaf3fc;          /* very light blue background */
-  --text: #1c2b3a;
-  --muted: #5f7488;
-  --accent: #2f6fb3;
-  --highlight: #d4e6f9;   /* hover background */
-  --radius: 14px;
+  --bg: #f3f5ee;          /* cream */
+  --text: #1f2a24;
+  --muted: #8fa291;       /* inactive nav words */
+  --accent: #4f7a5a;      /* sage green */
+  --highlight: #dfe9da;   /* soft sage tint (icon circles, hovers) */
+  --outline: #302c2a;     /* portrait outline */
   --ease: 0.25s ease;
   --font: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -18,16 +18,16 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
-  line-height: 1.6;
+  line-height: 1.5;
   overflow: hidden;       /* one page, no scrolling */
 }
 
-/* ---------- Layout: left sidebar, right content ---------- */
+/* ---------- Layout: text left, portrait right ---------- */
 .page {
   height: 100vh;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 clamp(2rem, 6vw, 6rem);
+  padding: 0 clamp(2rem, 8vw, 8rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6rem;
@@ -36,52 +36,45 @@ body {
 
 /* ---------- Left ---------- */
 .name {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.6rem, 5.4vw, 4.8rem);
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 3rem;
 }
-.name { margin-bottom: 2rem; }
 
-.links { list-style: none; display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+.links { list-style: none; display: flex; flex-direction: column; align-items: flex-start; }
 
 .links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.8rem;
-  margin-left: -0.8rem;   /* keeps text aligned with the name */
-  color: var(--text);
+  display: inline-block;
+  font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--muted);
   text-decoration: none;
-  font-size: 1.1rem;
-  border-radius: 999px;
-  transition: background var(--ease), color var(--ease), transform var(--ease);
+  transition: color var(--ease), transform var(--ease);
 }
 .links a:hover,
-.links a:focus-visible,
-.links a.is-current {
-  background: var(--highlight);
-  color: var(--accent);
-  transform: translateX(4px);
-  outline: none;
-}
+.links a:focus-visible { color: var(--accent); transform: translateX(6px); outline: none; }
+.links a.is-current { color: var(--text); }
 
-.socials { display: flex; gap: 0.5rem; margin-top: 1.5rem; margin-left: -0.5rem; }
+.socials { display: flex; gap: 0.6rem; margin-top: 1.6rem; }
 .socials a {
   display: grid;
   place-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  color: var(--text);
+  width: 2.9rem;
+  height: 2.9rem;
+  color: var(--accent);
+  background: var(--highlight);
   border-radius: 50%;
   transition: background var(--ease), color var(--ease), transform var(--ease);
 }
 .socials a:hover,
-.socials a:focus-visible { background: var(--highlight); color: var(--accent); transform: translateY(-2px); outline: none; }
-.socials svg { width: 1.4rem; height: 1.4rem; }
+.socials a:focus-visible { background: var(--accent); color: var(--bg); transform: translateY(-3px); outline: none; }
+.socials svg { width: 1.35rem; height: 1.35rem; }
 
 /* ---------- Right ---------- */
-.content { position: relative; height: 70vh; }
+.content { position: relative; height: 80vh; }
 
 .view {
   position: absolute;
@@ -96,28 +89,41 @@ body {
 }
 .view.is-active { opacity: 1; visibility: visible; transform: none; }
 
+/* tall pill portrait */
 .photo {
-  width: min(360px, 100%);
-  align-self: flex-end;   /* pushes the photo to the right edge */
-  height: auto;
-  filter: drop-shadow(0 10px 20px rgba(47, 111, 179, 0.18));
+  align-self: flex-end;
+  height: min(100%, 560px);
+  aspect-ratio: 587 / 700;
+  object-fit: cover;
+  border: 5px solid var(--outline);
+  border-radius: 999px;
+  box-shadow: 0 24px 50px rgba(79, 122, 90, 0.2);
 }
 
-.view h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
-.view p { color: var(--muted); max-width: 42ch; }
-.view p + p { margin-top: 0.8rem; }
+.view h2 { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 1.2rem; }
+.view p { color: #566a5b; max-width: 44ch; font-size: 1.05rem; }
+.view p + p { margin-top: 0.9rem; }
 
-.project-list { list-style: none; display: grid; gap: 1.2rem; }
-.project-list a { color: var(--accent); font-weight: 500; text-decoration: none; }
-.project-list a:hover { text-decoration: underline; }
-.project-list span { display: block; color: var(--muted); font-size: 0.95rem; }
+.project-list { list-style: none; display: grid; gap: 0.9rem; max-width: 460px; }
+.project-list a {
+  display: block;
+  padding: 1.1rem 1.4rem;
+  background: var(--highlight);
+  border-radius: 20px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background var(--ease), transform var(--ease);
+}
+.project-list a:hover { background: #d3e2cd; transform: translateX(4px); }
+.project-list strong { display: block; font-weight: 600; font-size: 1.1rem; }
+.project-list span { color: #566a5b; font-size: 0.95rem; }
 
 /* ---------- Small screens: stack and allow scroll so nothing is cut off ---------- */
 @media (max-width: 720px) {
   body { overflow: auto; }
-  .photo { align-self: flex-start; }
-  .page { height: auto; min-height: 100vh; grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; align-items: start; }
+  .page { height: auto; min-height: 100vh; grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; align-items: start; }
   .content { height: auto; min-height: 60vh; }
+  .photo { align-self: flex-start; height: auto; width: min(300px, 100%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
