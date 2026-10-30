@@ -1,5 +1,5 @@
 // Swaps the right-hand panel between home / about / projects.
-// Clicking the same link again (or the name) returns to home.
+// Clicking the same link again returns to home.
 const views = document.querySelectorAll('.view');
 const links = document.querySelectorAll('[data-view]');
 
@@ -17,11 +17,6 @@ links.forEach(link => {
     history.replaceState(null, '', isCurrent ? '#' : '#' + id);
     show(isCurrent ? 'home' : id);
   });
-});
-
-document.querySelector('.name').addEventListener('click', () => {
-  history.replaceState(null, '', '#');
-  show('home');
 });
 
 show(location.hash.slice(1));
