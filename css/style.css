@@ -1,0 +1,112 @@
+/* ---------- Design tokens: change colors/fonts here ---------- */
+:root {
+  --bg: #eaf3fc;          /* very light blue background */
+  --text: #1c2b3a;
+  --muted: #5f7488;
+  --accent: #2f6fb3;
+  --highlight: #d4e6f9;   /* hover background */
+  --radius: 14px;
+  --ease: 0.25s ease;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  overflow: hidden;       /* one page, no scrolling */
+}
+
+/* ---------- Layout: left sidebar, right content ---------- */
+.page {
+  height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ---------- Left ---------- */
+.name {
+  cursor: pointer;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.tagline { color: var(--muted); margin: 0.5rem 0 2rem; }
+
+.links { list-style: none; display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.8rem;
+  margin-left: -0.8rem;   /* keeps text aligned with the name */
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-radius: 999px;
+  transition: background var(--ease), color var(--ease), transform var(--ease);
+}
+.links a:hover,
+.links a:focus-visible,
+.links a.is-current {
+  background: var(--highlight);
+  color: var(--accent);
+  transform: translateX(4px);
+  outline: none;
+}
+.icon { width: 1.1em; height: 1.1em; }
+
+/* ---------- Right ---------- */
+.content { position: relative; height: 70vh; }
+
+.view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+}
+.view.is-active { opacity: 1; visibility: visible; transform: none; }
+
+.photo {
+  width: min(260px, 100%);
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(47, 111, 179, 0.18));
+}
+.intro { margin-top: 1.25rem; color: var(--muted); max-width: 32ch; }
+
+.view h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+.view p { color: var(--muted); max-width: 42ch; }
+.view p + p { margin-top: 0.8rem; }
+
+.project-list { list-style: none; display: grid; gap: 1.2rem; }
+.project-list a { color: var(--accent); font-weight: 500; text-decoration: none; }
+.project-list a:hover { text-decoration: underline; }
+.project-list span { display: block; color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- Small screens: stack and allow scroll so nothing is cut off ---------- */
+@media (max-width: 720px) {
+  body { overflow: auto; }
+  .page { height: auto; min-height: 100vh; grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; align-items: start; }
+  .content { height: auto; min-height: 60vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
