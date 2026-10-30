@@ -23,8 +23,11 @@ openers.forEach(link => {
   });
 });
 
-document.querySelectorAll('.back').forEach(btn => btn.addEventListener('click', goHome));
-document.addEventListener('keydown', e => { if (e.key === 'Escape') goHome(); });
+document.querySelectorAll('.back').forEach(btn => btn.addEventListener('click', () => {
+  const target = btn.dataset.back;               // e.g. Demos goes back to Projects
+  if (target) { history.replaceState(null, '', '#' + target); openPage(target); } else goHome();
+}));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelector('.page-full.is-open .back')?.click(); });
 
 openPage(location.hash.slice(1));
 
