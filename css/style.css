@@ -47,3 +47,5 @@ figcaption { margin-bottom: 0.5rem; font-weight: bold; }
 figure img { display: block; width: 100%; height: auto; border: 1px solid #ccc; }
 
 @media (max-width: 600px) { body { margin: 1.5rem auto; } .home { min-height: 0; } }
+
+.label { margin: 1.5rem 0 0.2rem; font-weight: bold; }
