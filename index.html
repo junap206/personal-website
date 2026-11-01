@@ -4,117 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Anuj Pullakandam</title>
-  <meta name="description" content="Personal website of Anuj Pullakandam." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <main class="page">
-
-    <!-- LEFT: name + navigation -->
-    <nav class="sidebar">
-      <h1 class="name">Anuj Pullakandam</h1>
-
-      <ul class="links">
-        <li><a href="#projects" data-view="projects">Projects</a></li>
-        <li><a href="#about" data-view="about">About</a></li>
+  <div class="home">
+    <div>
+      <h1>Anuj Pullakandam</h1>
+      <ul>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
-
-      <div class="socials">
-        <a href="https://github.com/junap206" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-        </a>
-        <button type="button" class="copy-email" data-email="junap206@gmail.com" aria-label="Copy email address">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        <span class="toast" role="status" aria-live="polite">Copied!</span></button>
-        <a href="https://www.linkedin.com/in/anuj-pullakandam" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-        </a>
+      <div class="icons">
+        <a href="https://github.com/junap206" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+        <button type="button" id="copy-email" aria-label="Copy email address"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></button>
+        <a href="https://www.linkedin.com/in/anuj-pullakandam" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+        <span id="copied" role="status">Copied!</span>
       </div>
-    </nav>
-
-    <!-- RIGHT: swaps between home / about / projects -->
-    <section class="content">
-
-      <div class="view is-active" id="home">
-        <img class="photo" src="assets/photo.png" alt="Illustrated portrait of Anuj Pullakandam" />
-      </div>
-
-    </section>
-  </main>
-
-
-  <section class="page-full" id="projects" aria-hidden="true">
-    <button type="button" class="back" aria-label="Back">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m6-6-6 6 6 6"/></svg>
-    </button>
-    <div class="page-full__inner">
-      <h2>Projects</h2>
-        <ul class="project-list">
-        <li>
-          <span class="project-name">Sleep Stage Model Predictor</span>
-          <a class="pill" href="https://sleep-stage-explorer.vercel.app" target="_blank" rel="noopener">Try it live &#8599;</a>
-        </li>
-        <li>
-          <span class="project-name">Homecare Intake Platform</span>
-          <a class="pill" href="#demos" data-view="demos">Demo videos</a>
-        </li>
-        <li>
-          <span class="project-name">Anesthesiology Triage Agents</span>
-          <a class="pill" href="https://www.uhhospitals.org" target="_blank" rel="noopener">University Hospitals &#8599;</a>
-        </li>
-      </ul>
     </div>
-  </section>
-
-  <section class="page-full" id="about" aria-hidden="true">
-    <button type="button" class="back" aria-label="Back">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m6-6-6 6 6 6"/></svg>
-    </button>
-    <div class="page-full__inner">
-      <h2>About</h2>
-      <p class="intro-line">Third-year at Case Western Reserve University studying Systems Biology.</p>
-      <ul class="about-list">
-        <li>Machine Learning Researcher, Cleveland Clinic</li>
-        <li>Veale Synder Fellowship</li>
-        <li>Startup Microgrant Award Winner</li>
-        <li>Hospice Club</li>
-        <li>Intramural Basketball</li>
-      </ul>
-      <ul class="tags">
-        <li>Clinical machine learning</li>
-        <li>AI agents</li>
-        <li>Wearable biosignals</li>
-        <li>Healthcare automation</li>
-        <li>Entrepreneurship</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="page-full" id="demos" aria-hidden="true">
-    <button type="button" class="back" data-back="projects" aria-label="Back to projects">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m6-6-6 6 6 6"/></svg>
-    </button>
-    <div class="page-full__inner page-full__inner--wide">
-      <h2>Demo videos</h2>
-      <p class="note">All data shown is synthetic.</p>
-      <figure>
-        <figcaption>New inquiry &rarr; booked assessment</figcaption>
-        <img loading="lazy" src="https://github.com/user-attachments/assets/ff202d67-4809-4ab7-85db-1e37ed2056d8" alt="Screen recording: a new inquiry becomes a booked assessment" />
-      </figure>
-      <figure>
-        <figcaption>Reviving cold leads</figcaption>
-        <img loading="lazy" src="https://github.com/user-attachments/assets/c8e42e3a-fa9d-468a-8367-500f63a173e7" alt="Screen recording: reviving a cold lead" />
-      </figure>
-      <figure>
-        <figcaption>Accurate hand-off when needed</figcaption>
-        <img loading="lazy" src="https://github.com/user-attachments/assets/28e69f72-2807-4b13-ad55-cf5e9d05486f" alt="Screen recording: hand-off to a staff member" />
-      </figure>
-    </div>
-  </section>
-
+    <img class="photo" src="assets/photo.png" alt="Illustrated portrait of Anuj Pullakandam" />
+  </div>
   <script src="js/main.js"></script>
 </body>
 </html>
